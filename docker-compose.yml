@@ -57,10 +57,16 @@ services:
 
   adminer:
     depends_on:
+      - mailcatcher
       - db
     image: adminer
     ports:
       - 8080:8080
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - 1080:1080
 
 volumes:
   db-data: {}
